@@ -32,6 +32,9 @@ using Il2CppAssets.Scripts.Models.Towers.Projectiles;
 using Il2CppAssets.Scripts.Models.Bloons.Behaviors;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions;
 using static BakerMonkeNameSpace.BakerMonkeyMod;
+using Il2CppAssets.Scripts.Unity.UI_New.InGame.EditorMenus;
+using Il2CppAssets.Scripts.Unity.UI_New.InGame.Stats;
+using BakerMonkey.ProjectileDisplay;
 
 [assembly: MelonInfo(typeof(BakerMonkeNameSpace.BakerMonkeyMod), ModHelperData.Name, ModHelperData.Version, ModHelperData.RepoOwner)]
 [assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
@@ -52,401 +55,7 @@ namespace BakerMonkeNameSpace
 
 
 
-        public class bakerDisplay : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
 
-            public override bool UseForTower(int[] tiers)
-            {
-                return true;
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "bakertexture");
-                SetMeshOutlineColor(node, new UnityEngine.Color(211, 211, 211));
-
-            }
-        }
-
-        public class bakermiddleDisplay : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[1] == 1;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "bakertexturemiddle");
-                SetMeshOutlineColor(node, new UnityEngine.Color(211, 211, 211));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class bakermiddleDisplayT2 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[1] == 2;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "bakertexturemiddle");
-                SetMeshOutlineColor(node, new UnityEngine.Color(211, 211, 211));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class bakermiddleDisplayT3 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[1] == 3;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "bakertexturemiddle");
-                SetMeshOutlineColor(node, new UnityEngine.Color(211, 211, 211));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-
-        public class OvenLook : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[1] == 5;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "ovenlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class OvenLookT4 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[1] == 4;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "ovenlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class BreadLookT1 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[2] == 1;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "breadlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-        public class BreadLookT2 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[2] == 2;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "breadlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class BreadLookT3 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[2] == 3;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "breadlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-        public class BreadLookT4 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[2] == 4;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "breadlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-    }
-
-    public class MegaBreadLook : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[2] == 5;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "megabreadlook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 0, 0));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class CakeLookT1 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[0] == 1;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "cakelook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-        public class CakeLookT2 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[0] == 2;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "cakelook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class CakeLookT3 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[0] == 3;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "cakelook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class CakeLookT4 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[0] == 4;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "cakelook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
-
-
-        public class CakeLookT5 : ModTowerDisplay<BakerMonkey>
-        {
-            public override string BaseDisplay => GetDisplay(TowerType.BoomerangMonkey);
-
-            public override bool UseForTower(int[] tiers)
-            {
-                return tiers[0] == 5;
-
-            }
-            public override void ModifyDisplayNode(UnityDisplayNode node)
-            {
-#if DEBUG
-                node.SaveMeshTexture();
-                node.PrintInfo();
-
-#endif
-
-                SetMeshTexture(node, "cakelook");
-                SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-                node.RemoveBone("SuperMonkeyRig:Dart");
-
-            }
-        }
 
 
 
@@ -479,12 +88,12 @@ namespace BakerMonkeNameSpace
 
                 var projectile = attackModel.weapons[0].projectile;
                 projectile.ApplyDisplay<PanDisplay>();
-                towerModel.ApplyDisplay<bakerDisplay>();
+
 
             }
 
-            public override string Icon => "BakerIcon";
-            public override string Portrait => "BakerIcon";
+            public override string Icon => "Icon";
+            public override string Portrait => "Icon";
 
 
 
@@ -509,8 +118,8 @@ namespace BakerMonkeNameSpace
                 var WeaponModel = attackModel.weapons[0];
                 var projectileModel = WeaponModel.projectile;
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CakeDisplay>();
-                towerModel.ApplyDisplay<CakeLookT1>();
+                projectile.ApplyDisplay<cake>();
+
                 projectileModel.pierce += 2;
                 projectileModel.GetDamageModel().damage += 2;
 
@@ -541,8 +150,8 @@ namespace BakerMonkeNameSpace
                 var projectileModel = WeaponModel.projectile;
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CakeDisplay>();
-                towerModel.ApplyDisplay<CakeLookT2>();
+                projectile.ApplyDisplay<cake>();
+
                 projectileModel.GetDamageModel().damage += 5;
             }
 
@@ -566,16 +175,17 @@ namespace BakerMonkeNameSpace
 
             public override void ApplyUpgrade(TowerModel towerModel)
             {
-            var attackModel = towerModel.GetAttackModel();
-            var WeaponModel = attackModel.weapons[0];
-            var projectileModel = WeaponModel.projectile;
-            var projectile = attackModel.weapons[0].projectile;
-            projectile.ApplyDisplay<CakeDisplay>();
-            towerModel.ApplyDisplay<CakeLookT3>();
-            projectileModel.pierce -= 5;
-            projectileModel.GetDamageModel().damage += 10;
+                var attackModel = towerModel.GetAttackModel();
+                var WeaponModel = attackModel.weapons[0];
+                var projectileModel = WeaponModel.projectile;
+                var projectile = attackModel.weapons[0].projectile;
+                projectile.ApplyDisplay<cake>();
 
-        }
+
+                projectileModel.pierce -= 5;
+                projectileModel.GetDamageModel().damage += 10;
+
+            }
 
             public override string Icon => "Boom";
 
@@ -601,8 +211,8 @@ namespace BakerMonkeNameSpace
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CakeDisplay>();
-                towerModel.ApplyDisplay<CakeLookT4>();
+                projectile.ApplyDisplay<cake>();
+
 
                 var rateSupportModel = new RateSupportModel("RateSupportModel_Genetic", 0.8f, true, Id, false, 0,
     new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
@@ -637,10 +247,10 @@ namespace BakerMonkeNameSpace
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<bestCakeDisplay>();
-                towerModel.ApplyDisplay<CakeLookT5>();
+                projectile.ApplyDisplay<bestcake>();
+
                 var rateSupportModel = new RateSupportModel("RateSupportModel_Genetic", 0.00000001f, true, Id, false, 0,
-new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
+    new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
                 towerModel.AddBehavior(rateSupportModel);
 
 
@@ -672,7 +282,7 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
                 var projectileModel = WeaponModel.projectile;
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CupcakeDisplay>();
+                projectile.ApplyDisplay<cupcake>();
 
                 projectileModel.pierce += 10;
                 projectileModel.GetDamageModel().damage += 3;
@@ -701,15 +311,15 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
                 var attackModel = towerModel.GetAttackModel();
                 var WeaponModel = attackModel.weapons[0];
                 var projectileModel = WeaponModel.projectile;
-                towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 2, 50, 100f, null, false);
+                towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 2, 50, 100f, null, false, false);
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CupcakeDisplay>();
+                projectile.ApplyDisplay<cupcake>();
 
                 projectileModel.pierce += 20;
                 projectileModel.GetDamageModel().damage += 2;
-            towerModel.AddBehavior(new OverrideCamoDetectionModel("CamoTargeter", true));
-            towerModel.GetDescendants<FilterInvisibleModel>().ForEach(model => model.isActive = false);
-        }
+                towerModel.AddBehavior(new OverrideCamoDetectionModel("CamoTargeter", true));
+                towerModel.GetDescendants<FilterInvisibleModel>().ForEach(model => model.isActive = false);
+            }
 
             public override string Icon => "Double";
 
@@ -731,12 +341,12 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
             public override void ApplyUpgrade(TowerModel towerModel)
             {
-                towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 3, 50, 100f, null, false);
+                towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 3, 50, 100f, null, false, false);
                 var attackModel = towerModel.GetAttackModel();
                 var WeaponModel = attackModel.weapons[0];
                 var projectileModel = WeaponModel.projectile;
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<CupcakeDisplay>();
+                projectile.ApplyDisplay<cupcake>();
 
                 projectileModel.GetDamageModel().damage += 10;
             }
@@ -763,15 +373,16 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
             {
 
                 var attackModel = towerModel.GetAttackModel();
-            var WeaponModel = attackModel.weapons[0];
-            var projectileModel = WeaponModel.projectile;
+                var WeaponModel = attackModel.weapons[0];
+                var projectileModel = WeaponModel.projectile;
 
-            var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<OvenDisplay>();
-                towerModel.ApplyDisplay<OvenLookT4>();
+                var projectile = attackModel.weapons[0].projectile;
+                projectile.ApplyDisplay<oven>();
 
-            projectileModel.GetDamageModel().immuneBloonProperties = BloonProperties.None;
-        }
+
+
+                projectileModel.GetDamageModel().immuneBloonProperties = BloonProperties.None;
+            }
 
             public override string Icon => "oven";
 
@@ -795,16 +406,15 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
             {
 
                 var attackModel = towerModel.GetAttackModel();
-            var WeaponModel = attackModel.weapons[0];
-            var projectileModel = WeaponModel.projectile;
+                var WeaponModel = attackModel.weapons[0];
+                var projectileModel = WeaponModel.projectile;
 
-            var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<OvenDisplay>();
-                towerModel.ApplyDisplay<OvenLook>();
+                var projectile = attackModel.weapons[0].projectile;
+                projectile.ApplyDisplay<oven>();
 
-            projectileModel.GetDamageModel().immuneBloonProperties = BloonProperties.None;
+                projectileModel.GetDamageModel().immuneBloonProperties = BloonProperties.None;
 
-        }
+            }
 
             public override string Icon => "megaoven";
 
@@ -830,12 +440,12 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<BreadDisplay>();
-                towerModel.ApplyDisplay<BreadLookT1>();
-            var WeaponModel = attackModel.weapons[0];
-            var projectileModel = WeaponModel.projectile;
-            projectileModel.pierce += 10;
-        }
+                projectile.ApplyDisplay<bread>();
+
+                var WeaponModel = attackModel.weapons[0];
+                var projectileModel = WeaponModel.projectile;
+                projectileModel.pierce += 10;
+            }
 
             public override string Icon => "bread";
 
@@ -861,12 +471,12 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<BreadDisplay>();
-                towerModel.ApplyDisplay<BreadLookT2>();
-            var WeaponModel = attackModel.weapons[0];
-            var projectileModel = WeaponModel.projectile;
-            projectileModel.pierce += 20;
-        }
+                projectile.ApplyDisplay<bread>();
+
+                var WeaponModel = attackModel.weapons[0];
+                var projectileModel = WeaponModel.projectile;
+                projectileModel.pierce += 20;
+            }
 
             public override string Icon => "Sandwich";
 
@@ -892,10 +502,10 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<BreadDisplay>();
-                towerModel.ApplyDisplay<BreadLookT3>();
-            TowerModelBehaviorExt.AddBehavior<MonkeyCityIncomeSupportModel>(towerModel, new MonkeyCityIncomeSupportModel("MonkeyCityIncomeSupportModel_", true, 1.5f, (Il2CppReferenceArray<TowerFilterModel>)null, "MonkeyCityBuff", "BuffIconVillagexx4"));
-        }
+                projectile.ApplyDisplay<bread>();
+
+                TowerModelBehaviorExt.AddBehavior<MonkeyCityIncomeSupportModel>(towerModel, new MonkeyCityIncomeSupportModel("MonkeyCityIncomeSupportModel_", true, 1.5f, (Il2CppReferenceArray<TowerFilterModel>)null, "MonkeyCityBuff", "BuffIconVillagexx4"));
+            }
 
             public override string Icon => "BakeryIcon";
 
@@ -921,8 +531,9 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<BreadDisplay>();
-                towerModel.ApplyDisplay<BreadLookT4>();
+                projectile.ApplyDisplay<bread>();
+
+
                 TowerModelBehaviorExt.AddBehavior<MonkeyCityIncomeSupportModel>(towerModel, new MonkeyCityIncomeSupportModel("MonkeyCityIncomeSupportModel_", true, 2f, (Il2CppReferenceArray<TowerFilterModel>)null, "MonkeyCityBuff", "BuffIconVillagexx4"));
 
             }
@@ -951,8 +562,8 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                 var projectile = attackModel.weapons[0].projectile;
-                projectile.ApplyDisplay<MegaBreadDisplay>();
-                towerModel.ApplyDisplay<MegaBreadLook>();
+                projectile.ApplyDisplay<megabread>();
+
                 TowerModelBehaviorExt.GetBehavior<MonkeyCityIncomeSupportModel>(towerModel).incomeModifier = 5f;
             }
 
@@ -967,15 +578,12 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
             public override bool UseForTower(int[] tiers) => IsParagon(tiers);
 
-        public override void ModifyDisplayNode(UnityDisplayNode node)
-        {
-            SetMeshTexture(node, "ParagonLook");
+            public override void ModifyDisplayNode(UnityDisplayNode node)
+            {
+                node.RemoveBone("SuperMonkeyRig:Dart");
+            }
 
-            SetMeshOutlineColor(node, new UnityEngine.Color(255, 255, 255));
-            node.RemoveBone("SuperMonkeyRig:Dart");
-        }
-
-        public class UpgradeParagon : ModParagonUpgrade<BakerMonkey>
+            public class UpgradeParagon : ModParagonUpgrade<BakerMonkey>
             {
                 public override int Cost => 2000000;
 
@@ -991,21 +599,19 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
 
 
                     var projectile = attackModel.weapons[0].projectile;
-                    projectile.ApplyDisplay<BakeryDisplay>();
-                    towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 9, 50, 100f, null, false);
+                    towerModel.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 9, 50, 100f, null, false, false);
 
                     towerModel.GetWeapon().projectile.AddBehavior(new TrackTargetModel("Track", 99999, false, false, 9999, true, 99999, true, false));
                     TowerModelBehaviorExt.GetBehavior<MonkeyCityIncomeSupportModel>(towerModel).incomeModifier = 40f;
                     towerModel.AddBehavior(new OverrideCamoDetectionModel("CamoTargeter", true));
                     towerModel.GetDescendants<FilterInvisibleModel>().ForEach(model => model.isActive = false);
-                var rateSupportModel = new RateSupportModel("RateSupportModel_Genetic", 0.0001f, true, Id, false, 0,
-new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
-                towerModel.AddBehavior(rateSupportModel);
+                    var rateSupportModel = new RateSupportModel("RateSupportModel_Genetic", 0.0001f, true, Id, false, 0,
+    new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
+                    towerModel.AddBehavior(rateSupportModel);
 
 
-                towerModel.GetAttackModel().range += 10;
+                    towerModel.GetAttackModel().range += 10;
                     towerModel.range += 10;
-                    towerModel.radiusSquared += 10;
 
 
                     projectileModel.pierce = 99999;
@@ -1021,10 +627,4 @@ new Il2CppReferenceArray<TowerFilterModel>(0), "", "");
             }
         }
     }
- 
-    
-
-
-    
-
-
+}

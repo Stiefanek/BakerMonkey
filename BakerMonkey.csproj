@@ -1,6 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-		
         <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>BakerMonkey</RootNamespace>
         <Configurations>Debug;Release</Configurations>
@@ -10,12 +9,9 @@
         <Optimize>False</Optimize>
         <DebugType>embedded</DebugType>
     </PropertyGroup>
+    <ItemGroup>
+        <Content Include=".github\workflows\build.yml" />
+    </ItemGroup>
 
     <Import Project="..\btd6.targets" />
-
-    <ItemGroup>
-		<Reference Include="BloonsTD6 Mod Helper">
-        <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\BloonsTD6\Mods\Btd6ModHelper (1).dll</HintPath>
-      </Reference>
-    </ItemGroup>
 </Project>
